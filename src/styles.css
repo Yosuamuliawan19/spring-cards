@@ -126,3 +126,28 @@ button {
   padding-top: 14px;
   padding-left: 14px;
 }
+
+.back-btn {
+  padding-left: 16px;
+  padding-top: 16px;
+}
+.back-btn:hover {
+  cursor: pointer;
+}
+
+.footer-container {
+  width: 1080px;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding-top: 24px;
+  margin-top: 200px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.footer-cc {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+}
+.footer-cc > div {
+  margin-right: 8px;
+}
