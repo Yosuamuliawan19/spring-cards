@@ -6,3 +6,17 @@
   margin: 0 auto;
   padding-top: 120px;
 }
+
+.folder {
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  /* background-size: contain; */
+  background-size: 100% auto !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.showcase {
+}

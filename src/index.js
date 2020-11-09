@@ -1,8 +1,8 @@
 
 import React  from 'react'
 import { render } from 'react-dom'
-import ViewPage from './ViewPage'
-import LandingPage from './LandingPage'
+import ViewPage from './pages/ViewPage'
+import LandingPage from './pages/LandingPage'
 import './styles.css'
 import {
   BrowserRouter as Router,
@@ -10,14 +10,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import DashBoard from './Dashboard'
+import DashBoard from './pages/Dashboard'
 import './styles/DashBoard.css';
 import Footer from './Footer';
+import { AuthProvider } from './Auth'
+
+
 
 
 function Index(){
   return (
-    <Router>
+      <Router>
         <Switch>
           <Route exact path="/dashboard" >
             
@@ -32,6 +35,7 @@ function Index(){
           </Route>
         </Switch>
     </Router>
+    
   )
 }
 
