@@ -4,7 +4,7 @@
   width: 1080px;
   max-width: 90vw;
   margin: 0 auto;
-  padding-top: 120px;
+  padding-top: 20px;
 }
 
 .folder {
@@ -18,5 +18,38 @@
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
+.folder-container {
+  margin-right: 16px;
+  transition: background-color 0.5s ease;
+  padding: 8px;
+  margin: 8px;
+}
+
+.folder-container:hover {
+  background-color: aliceblue;
+  border-radius: 8px;
+  cursor: pointer;
+}
 .showcase {
+}
+
+.folder-section {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.folder-name {
+  margin-top: 16px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }

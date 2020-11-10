@@ -4,23 +4,20 @@
 
 html,
 body {
-  overscroll-behavior-y: contain;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  user-select: none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
-    sans-serif;
-  position: fixed;
-  overflow: hidden;
+  /* overscroll-behavior-y: contain; */
+  /* margin: 0; */
+  /* padding: 0; */
+  /* height: 100%;
+  width: 100%; */
+  /* position: fixed; */
+  /* overflow: hidden; */
 }
 
 #root {
   /* background-image: url('https://res.cloudinary.com/yosuam19/image/upload/v1604739457/polaroid/sergio-arze-e-lPhRbK4G0-unsplash_lcliyr.jpg'); */
-  width: 100%;
+  /* width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; */
   /* z-index: -101; */
 }
 .bg {
