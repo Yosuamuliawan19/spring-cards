@@ -8,8 +8,8 @@
 }
 
 .folder {
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   /* background-size: contain; */
@@ -21,8 +21,9 @@
 .folder-container {
   margin-right: 16px;
   transition: background-color 0.5s ease;
-  padding: 8px;
-  margin: 8px;
+  /* padding: 8px;
+  margin: 8px; */
+  margin-bottom: 20px;
 }
 
 .folder-container:hover {
@@ -37,10 +38,13 @@
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
+  justify-content: flex-start;
   width: 100%;
 }
 .folder-name {
   margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .dashboard-title {
@@ -52,4 +56,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+}
+@media only screen and (max-width: 1080px) {
+  .folder {
+    width: 200px;
+    height: 200px;
+  }
 }
