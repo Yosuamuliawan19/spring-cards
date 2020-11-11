@@ -6,6 +6,7 @@
   "homepage": "https://yosua.io/",
   "main": "src/index.js",
   "dependencies": {
+    "@mojs/core": "^0.288.2",
     "firebase": "^8.0.1",
     "firebaseui": "^4.7.1",
     "lodash-es": "4.17.11",

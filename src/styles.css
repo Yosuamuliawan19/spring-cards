@@ -149,3 +149,10 @@ button {
 .footer-cc > div {
   margin-right: 8px;
 }
+
+.icon-tabler-dots-vertical:hover {
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}

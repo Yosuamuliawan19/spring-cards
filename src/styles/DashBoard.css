@@ -57,9 +57,19 @@
   align-items: center;
   margin-bottom: 24px;
 }
+
 @media only screen and (max-width: 1080px) {
   .folder {
-    width: 200px;
-    height: 200px;
+    width: 25vw;
+    height: 25vw;
   }
+}
+@media only screen and (max-width: 720px) {
+  .folder {
+    width: 40vw;
+    height: 40vw;
+  }
+}
+.action-icons {
+  display: flex;
 }

@@ -4,6 +4,8 @@ import { useSprings, animated, interpolate, config} from 'react-spring'
 import { useGesture } from 'react-use-gesture'
 import '../styles.css'
 import { CirclePicker } from 'react-color'
+import mojs from "@mojs/core";
+
 
 var selected = 0;
 
@@ -117,6 +119,22 @@ class App extends React.Component {
       baseLineY : 0,
     }
   }
+
+  componentDidMount() {
+    const animation = new mojs.Shape({
+      parent: "#test",
+      shape: "circle",
+      fill: { "#F64040": "#FC46AD" },
+      radius: { 20: 80 },
+      duration: 2000,
+      isYoyo: true,
+      isShowStart: true,
+      easing: "elastic.inout",
+      repeat: 1
+    });
+    animation.play();
+  }
+
   setSelectedCards(idx){
     if (idx !== this.state.selectedCard){
       this.setState({selectedCard: idx});
@@ -142,7 +160,7 @@ class App extends React.Component {
       <BackButton/>
 
       </div>
-
+<div id="test" />
       {/* <div onClick={_ => this.setState({baseLineX: this.state.baseLineX + 100})}>asdas</div> */}
     <Deck baseLineX={this.state.baseLineX} baseLineY={this.state.baseLineY} cards={this.state.cards} setSelectedCards={idx=>this.setSelectedCards(idx)} className="deck"/>
   {/* <div>{this.state.selectedCard}</div> */}

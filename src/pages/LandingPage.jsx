@@ -4,7 +4,7 @@ export default class LandingPage extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-          products : ['memories', 'products', 'books'],
+          products : ['memories', 'products', 'books', 'artworks'],
           currentProduct : 0, 
       }
     }
