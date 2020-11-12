@@ -12,17 +12,24 @@
   height: 240px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  /* background-size: contain; */
-  background-size: 100% auto !important;
+  background-size: 100% !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-size: cover !important;
+  /* background-size: cover !important; */
+  transition: background-size 0.3s ease-in-out;
+  -moz-transition: background-size 0.3s ease-in-out;
+  -ms-transition: background-size 0.3s ease-in-out;
+  -o-transition: background-size 0.3s ease-in-out;
+  -webkit-transition: background-size 0.3s ease-in-out;
+}
+.folder:hover {
+  background-size: 110% !important;
 }
 .folder-container {
-  margin-right: 16px;
+  /* margin-right: 16px; */
   transition: background-color 0.5s ease;
-  /* padding: 8px;
-  margin: 8px; */
+  padding: 8px;
+  margin: 4px;
   margin-bottom: 20px;
 }
 
@@ -38,7 +45,7 @@
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  /* justify-content: space-between; */
   width: 100%;
 }
 .folder-name {
@@ -63,6 +70,13 @@
     width: 25vw;
     height: 25vw;
   }
+
+  .folder-name {
+    font-size: 14px;
+  }
+  .folder-container {
+    padding: 1vw;
+  }
 }
 @media only screen and (max-width: 720px) {
   .folder {
@@ -72,4 +86,110 @@
 }
 .action-icons {
   display: flex;
+}
+
+.toast-hide {
+  position: fixed;
+  bottom: -40px;
+  width: 90vw;
+  max-width: 1080px;
+  color: white;
+  padding: 8px 16px;
+  transition: all 0.5s ease;
+  border-radius: 16px;
+}
+.toast-show {
+  bottom: 12px;
+}
+
+.prompt-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt-box {
+  /* -webkit-animation: fade-in-bottom 0.1s ease both;
+  animation: fade-in-bottom 0.3s ease both; */
+  justify-content: center;
+  width: 500px;
+  max-width: 90vw;
+  /* height: 200px; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.prompt-title {
+  font-size: 24px;
+
+  padding-bottom: 16px;
+}
+* {
+  font-weight: lighter;
+}
+.prompt-desc {
+  padding-bottom: 16px;
+}
+@media only screen and (max-width: 1080px) {
+  .delete-btn-section {
+    justify-content: flex-end;
+  }
+}
+.delete-btn-section {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.delete-btn {
+  background-color: rgb(63, 107, 252);
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 4px;
+  margin-right: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.delete-btn:hover {
+  background-color: rgb(84, 123, 250);
+}
+
+.cancel-btn {
+  /* background-color: rgb(156, 156, 156); */
+  border: none;
+  padding: 10px;
+  color: black;
+  background-color: white;
+  text-decoration: underline;
+  border-radius: 4px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05); */
+}
+
+.drop-down {
+  width: 200px;
+  height: 250px;
+  padding: 24px 0;
+  background-color: white;
+  position: fixed;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.drop-down > div {
+  padding: 0 16px;
+
+  display: flex;
+  padding-bottom: 12px;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.drop-down > div:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
 }
