@@ -66,27 +66,44 @@ function DeletePrompt(props) {
     </div>
   )
 }
-function EditPrompt(props) {
-  return (
-    <div className="prompt-container">
-      <div className="prompt-box">
-        <div className="prompt-title">Enter new name {props.itemName}?</div>
-        <form action="javascript:void(0);">
-          <input type="text" val={props.itemName} />
-          <div className="delete-btn-section">
-            <button className="delete-btn" type="submit" onClick={(_) => props.editItem('something')}>
-              {' '}
-              Save{' '}
-            </button>
-            <button className="cancel-btn" onClick={(_) => props.closeEditPrompt()}>
-              {' '}
-              Cancel{' '}
-            </button>
-          </div>
-        </form>
+
+class EditPrompt extends React.Component {
+  constructor(props) {
+    super(props)
+    console.log(props)
+    this.state = {
+      name: props.itemName
+    }
+  }
+  render() {
+    console.log(this.state)
+    return (
+      <div className="prompt-container">
+        <div className="prompt-box">
+          <div className="prompt-title">Enter new name {this.props.itemName}?</div>
+          <form action="javascript:void(0);">
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={(e) => {
+                this.setState({ name: e.target.value })
+              }}
+            />
+            <div className="delete-btn-section">
+              <button className="delete-btn" type="submit" onClick={(_) => this.props.editItem(this.state.name)}>
+                {' '}
+                Save{' '}
+              </button>
+              <button className="cancel-btn" onClick={(_) => this.props.closeEditPrompt()}>
+                {' '}
+                Cancel{' '}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 function DropDown(props) {
@@ -193,14 +210,18 @@ export default class DashBoard extends React.Component {
           />
         )}
         {this.state.editPrompt !== -1 && (
-          <EditPrompt editItem={(name) => this.editItem(name)} closeEditPrompt={(_) => this.openEditPrompt(-1)} />
+          <EditPrompt
+            itemName={this.state.shelves[this.state.editPrompt].name}
+            editItem={(name) => this.editItem(name)}
+            closeEditPrompt={(_) => this.openEditPrompt(-1)}
+          />
         )}
 
         {this.state.dropDown !== -1 && (
           <DropDown x={MouseX} y={MouseY}>
-            <div>Open</div>
-            <div>Share</div>
-            <div>Rename</div>
+            <div onClick={(_) => this.goToView()}>Open</div>
+            <div onClick={(_) => this.showToast('rgb(219, 102, 137)', 'Link copied!')}>Share</div>
+            <div onClick={(_) => this.openEditPrompt(this.state.dropDown)}>Rename</div>
             <div onClick={(_) => this.openDeletePrompt(this.state.dropDown)}>
               <DeleteButton /> Delete
             </div>
