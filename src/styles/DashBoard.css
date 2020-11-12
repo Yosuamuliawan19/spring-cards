@@ -173,7 +173,7 @@
 
 .drop-down {
   width: 200px;
-  height: 250px;
+  /* height: 250px; */
   padding: 24px 0;
   background-color: white;
   position: fixed;
@@ -182,10 +182,8 @@
 }
 
 .drop-down > div {
-  padding: 0 16px;
-
   display: flex;
-  padding-bottom: 12px;
+  padding: 6px 16px;
   /* align-items: center; */
   /* justify-content: center; */
 }

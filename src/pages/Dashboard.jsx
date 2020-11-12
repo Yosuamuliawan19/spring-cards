@@ -93,11 +93,8 @@ function DropDown(props) {
   console.log(props.x)
   console.log(props.y)
   return (
-    <div style={{ left: props.x + 200, top: window.innerHeight + props.y }} className="drop-down">
-      <div>Open</div>
-      <div>Share</div>
-      <div>Rename</div>
-      <div>Delete</div>
+    <div style={{ left: props.x, top: props.y }} className="drop-down">
+      {props.children}
     </div>
   )
 }
@@ -143,8 +140,8 @@ export default class DashBoard extends React.Component {
     }
   }
   _onMouseMove(e) {
-    MouseX = e.screenX
-    MouseY = e.screenY
+    MouseX = e.clientX
+    MouseY = e.clientY
   }
   showToast(color, text) {
     this.setState({ toast: { color: color, text: text, show: true } })
@@ -156,6 +153,7 @@ export default class DashBoard extends React.Component {
     window.location.href = '/create'
   }
   openDeletePrompt(item) {
+    this.setState({ dropDown: -1 })
     this.setState({ deletePrompt: item })
   }
   openDropDown(item) {
@@ -168,6 +166,7 @@ export default class DashBoard extends React.Component {
     this.setState({ shelves: arr, deletePrompt: -1 })
   }
   openEditPrompt(item) {
+    this.setState({ dropDown: -1 })
     this.setState({ editPrompt: item })
   }
   editItem(name) {
@@ -197,7 +196,16 @@ export default class DashBoard extends React.Component {
           <EditPrompt editItem={(name) => this.editItem(name)} closeEditPrompt={(_) => this.openEditPrompt(-1)} />
         )}
 
-        {this.state.dropDown !== -1 && <DropDown x={MouseX} y={MouseY} />}
+        {this.state.dropDown !== -1 && (
+          <DropDown x={MouseX} y={MouseY}>
+            <div>Open</div>
+            <div>Share</div>
+            <div>Rename</div>
+            <div onClick={(_) => this.openDeletePrompt(this.state.dropDown)}>
+              <DeleteButton /> Delete
+            </div>
+          </DropDown>
+        )}
 
         <div
           style={{ backgroundColor: this.state.toast.color }}
@@ -216,9 +224,6 @@ export default class DashBoard extends React.Component {
                   <div className="action-icons">
                     <div onClick={(_) => this.openDropDown(id)}>
                       <Dots />
-                    </div>
-                    <div onClick={(_) => this.openDeletePrompt(id)}>
-                      <DeleteButton />
                     </div>
                   </div>
                 </div>
