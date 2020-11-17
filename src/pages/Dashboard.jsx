@@ -46,6 +46,28 @@ function DeleteButton() {
     </div>
   )
 }
+function ShareButton() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-share"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="rgba(0,0,0,0.4)"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="6" r="3" />
+      <circle cx="18" cy="18" r="3" />
+      <line x1="8.7" y1="10.7" x2="15.3" y2="7.3" />
+      <line x1="8.7" y1="13.3" x2="15.3" y2="16.7" />
+    </svg>
+  )
+}
 function DeletePrompt(props) {
   return (
     <div className="prompt-container">
@@ -109,10 +131,35 @@ class EditPrompt extends React.Component {
 function DropDown(props) {
   console.log(props.x)
   console.log(props.y)
+  var x = props.x,
+    y = props.y
+  if (props.x + 150 > window.innerWidth) {
+    x = props.x - 150
+  }
   return (
-    <div style={{ left: props.x, top: props.y }} className="drop-down">
+    <div style={{ left: x, top: y }} className="drop-down">
       {props.children}
     </div>
+  )
+}
+function EditButton() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-edit"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="rgba(0,0,0,0.4)"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+      <line x1="16" y1="5" x2="19" y2="8" />
+    </svg>
   )
 }
 
@@ -153,7 +200,8 @@ export default class DashBoard extends React.Component {
       dropDown: -1,
       toast: { color: 'red', text: 'Has been deleted', show: false },
       MouseX: 0,
-      MouseY: 0
+      MouseY: 0,
+      rowView: false
     }
   }
   _onMouseMove(e) {
@@ -165,6 +213,10 @@ export default class DashBoard extends React.Component {
     setTimeout((_) => {
       this.setState({ toast: { color: color, text: '', show: false } })
     }, 6000)
+  }
+  share() {
+    this.showToast('rgb(219, 102, 137)', 'Link copied!')
+    this.setState({ dropDown: -1 })
   }
   goToView() {
     window.location.href = '/create'
@@ -220,8 +272,14 @@ export default class DashBoard extends React.Component {
         {this.state.dropDown !== -1 && (
           <DropDown x={MouseX} y={MouseY}>
             <div onClick={(_) => this.goToView()}>Open</div>
-            <div onClick={(_) => this.showToast('rgb(219, 102, 137)', 'Link copied!')}>Share</div>
-            <div onClick={(_) => this.openEditPrompt(this.state.dropDown)}>Rename</div>
+            <div onClick={(_) => this.share()}>
+              <ShareButton />
+              Share
+            </div>
+            <div onClick={(_) => this.openEditPrompt(this.state.dropDown)}>
+              <EditButton />
+              Rename
+            </div>
             <div onClick={(_) => this.openDeletePrompt(this.state.dropDown)}>
               <DeleteButton /> Delete
             </div>
@@ -238,10 +296,14 @@ export default class DashBoard extends React.Component {
           {this.state.shelves.map((data, id) => {
             // console.log(id)
             return (
-              <div key={id} className="folder-container">
-                <div onClick={(_) => this.goToView()} style={{ background: `url(${data.img})` }} className="folder"></div>
-                <div className="folder-name">
-                  {data.name.substr(0, 14)}
+              <div key={id} className={this.state.rowView ? 'folder-container folder-container-row' : 'folder-container'}>
+                <div
+                  onClick={(_) => this.goToView()}
+                  style={{ background: `url(${data.img})` }}
+                  className={this.state.rowView ? 'folder folder-row' : 'folder'}></div>
+                <div className={this.state.rowView ? 'folder-name folder-name-row' : 'folder-name'}>
+                  <div onClick={(_) => this.goToView()}>{data.name.substr(0, 14)}</div>
+
                   <div className="action-icons">
                     <div onClick={(_) => this.openDropDown(id)}>
                       <Dots />

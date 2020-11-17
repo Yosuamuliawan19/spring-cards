@@ -191,3 +191,22 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+.folder-container-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+.folder-row {
+  height: 50px;
+  width: 50px;
+  margin-right: 12px;
+}
+.folder-name-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 0;
+  align-items: center;
+}
