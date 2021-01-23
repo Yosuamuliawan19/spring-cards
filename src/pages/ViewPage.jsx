@@ -6,6 +6,7 @@ import '../styles.css'
 import { CirclePicker } from 'react-color'
 import mojs from '@mojs/core'
 import domtoimage from 'dom-to-image'
+import { getViews } from '../helper/api'
 
 var selected = 0
 
@@ -119,41 +120,41 @@ function BackButton() {
 class App extends React.Component {
   constructor(props) {
     super(props)
+    getViews().then((data) => {
+      if (data.data.data.projects) {
+        console.log(data.data.data.projects)
+        this.setState({ projects: data.data.data.projects })
+      }
+    })
     this.state = {
       currentBackgroundColour: backgroundColours[0],
       selectedCard: 0,
       cards: [
         {
-          img:
-            'https://res.cloudinary.com/yosuam19/image/upload/v1604736980/polaroid/austrian-national-library-6QyLdHVIbxw-unsplash_thfuly.jpg',
+          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1605701926/polaroid/radoslav-bali-jN9JnZ-SyVc-unsplash_kf2b1r.jpg',
           title: 'On memory',
           content:
             'Our memory is made up of our individual memories and our collective memories. The two are intimately linked. And history is our collective memory. If our collective memory is taken from us - is rewritten - we lose the ability to sustain our true selves.'
         },
         {
-          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1604737006/polaroid/annie-spratt--9vMBjrU-RA-unsplash_wilykq.jpg',
+          img:
+            'https://res.cloudinary.com/yosuam19/image/upload/v1605701927/polaroid/sebastian-pena-lambarri-tKxSn6jEm0g-unsplash_gv0suf.jpg',
           title: 'title2',
           content: 'content'
         },
         {
-          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1604736969/polaroid/caleb-george-iVXfOilGYHA-unsplash_z2tsru.jpg',
+          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1605701926/polaroid/artem-beliaikin-yeIq4R7WS6o-unsplash_1_obwqoj.jpg',
           title: 'title3',
           content: 'content'
         },
         {
-          img:
-            'https://res.cloudinary.com/yosuam19/image/upload/v1604736980/polaroid/austrian-national-library-6QyLdHVIbxw-unsplash_thfuly.jpg',
+          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1605701926/polaroid/alexandra-andersson-si4-pd-eeJs-unsplash_txrvjr.jpg',
           title: 'title4',
           content: 'content'
         },
         {
-          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1604737006/polaroid/annie-spratt--9vMBjrU-RA-unsplash_wilykq.jpg',
+          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1605701926/polaroid/alfons-taekema-uOmhrkwy234-unsplash_1_yimqff.jpg',
           title: 'title5',
-          content: 'content'
-        },
-        {
-          img: 'https://res.cloudinary.com/yosuam19/image/upload/v1604736969/polaroid/caleb-george-iVXfOilGYHA-unsplash_z2tsru.jpg',
-          title: 'title6',
           content: 'content'
         }
       ],
@@ -206,7 +207,7 @@ class App extends React.Component {
           var img = new Image()
           img.src = dataUrl
           console.log(dataUrl)
-          document.body.appendChild(img)
+          // document.body.appendChild(img)
         })
         .catch(function (error) {
           console.error('oops, something went wrong!', error)

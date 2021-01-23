@@ -1,0 +1,28 @@
+.nav-container {
+  display: flex;
+  width: 1080px;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+.nav-item {
+  align-items: center;
+  margin-top: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 24px;
+}
+.nav-item:hover {
+  cursor: pointer;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.nav-logo {
+  object-fit: contain;
+  height: 80px;
+  width: 80px;
+  margin-right: 80px;
+}
+.nav-right-section {
+  display: flex;
+}

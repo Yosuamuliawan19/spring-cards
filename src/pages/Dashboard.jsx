@@ -248,8 +248,12 @@ export default class DashBoard extends React.Component {
     return (
       <div className="dashboard-container" onMouseMove={this._onMouseMove.bind(this)}>
         <div className="dashboard-nav">
-          <div className="dashboard-title">Dashboard</div>
-          <button className="btn-primary" onClick={(_) => (window.location.href = '/create')}>
+          <div className="dashboard-nav-left">
+            <img className="dashboard-logo" src="https://res.cloudinary.com/yosuam19/image/upload/v1611415280/polaroid/logo_vtmwdp.png" />
+            <div className="dashboard-title">Dashboard</div>
+          </div>
+
+          <button className="btn-1" onClick={(_) => (window.location.href = '/create')}>
             Create new shelf
           </button>
         </div>

@@ -1,0 +1,10 @@
+.dev-container {
+  font-size: 72px;
+  height: 100vh;
+  width: 100vw;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
