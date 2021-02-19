@@ -1,15 +1,19 @@
 import React from 'react'
 import { render } from 'react-dom'
-import ViewPage from './pages/ViewPage'
-import LandingPage from './pages/LandingPage'
-import './styles.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import DashBoard from './pages/Dashboard'
-import './styles/DashBoard.css'
-import Footer from './Footer'
 import { AuthProvider } from './Auth'
-import Navbar from './pages/Navbar'
-import InDevelopment from './pages/InDevelopment'
+
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+
+import ViewPage from './pages/app/ViewPage'
+import LandingPage from './pages/LandingPage'
+import InDevelopmentPage from './pages/InDevelopmentPage'
+
+import DashBoard from './pages/app/DashboardPage'
+
+import './styles/styles.css'
+
 function Index() {
   return (
     <Router>
@@ -21,7 +25,7 @@ function Index() {
           <ViewPage />
         </Route>
         <Route exact path="/devel">
-          <InDevelopment />
+          <InDevelopmentPage />
         </Route>
         <Route exact path="/">
           <Navbar />

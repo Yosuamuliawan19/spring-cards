@@ -1,0 +1,11 @@
+.view-navbar-container {
+  position: fixed;
+  z-index: 1000;
+}
+.back-btn {
+  padding-left: 16px;
+  padding-top: 16px;
+}
+.back-btn:hover {
+  cursor: pointer;
+}

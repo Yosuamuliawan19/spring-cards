@@ -1,6 +1,6 @@
 import React from 'react'
-import '../styles/InDevelopment.css'
-export default function InDevelopment() {
+import '../styles/InDevelopmentPage.css'
+export default function InDevelopmentPage() {
   return (
     <div className="dev-container">
       <div>Sorry, this page is still being developed 👷</div>

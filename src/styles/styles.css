@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   box-sizing: border-box;
 }
@@ -123,14 +126,6 @@ button {
   width: auto !important ;
   padding-top: 14px;
   padding-left: 14px;
-}
-
-.back-btn {
-  padding-left: 16px;
-  padding-top: 16px;
-}
-.back-btn:hover {
-  cursor: pointer;
 }
 
 .footer-container {

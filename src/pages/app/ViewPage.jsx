@@ -2,11 +2,11 @@ import { render } from 'react-dom'
 import React, { useState } from 'react'
 import { useSprings, animated, interpolate, config } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
-import '../styles.css'
+import '../../styles/ViewPage.css'
 import { CirclePicker } from 'react-color'
 import mojs from '@mojs/core'
 import domtoimage from 'dom-to-image'
-import { getViews } from '../helper/api'
+import { getViews } from '../../helper/api'
 
 var selected = 0
 
@@ -14,10 +14,8 @@ function Deck(prop) {
   React.useEffect(() => {
     console.log('component updated')
   })
-
   const baseLineX = prop.baseLineX,
     baseLineY = prop.baseLineY
-
   // These two are just helpers, they curate spring data, values that are later being interpolated into css
   const to = (i) => ({ x: baseLineX, y: i * -4 + baseLineY, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
   const from = (i) => ({ x: baseLineX, rot: 0, scale: 1.5, y: -1000 })
@@ -217,7 +215,7 @@ class App extends React.Component {
   render() {
     return (
       <div style={{ background: this.state.currentBackgroundColour }} className={'bg'}>
-        <div onClick={(_) => (window.location.href = '/dashboard')}>
+        <div className="view-navbar-container" onClick={(_) => (window.location.href = '/dashboard')}>
           <BackButton />
         </div>
         <div id="test" />

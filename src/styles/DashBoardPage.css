@@ -8,11 +8,11 @@
 }
 
 .folder {
-  width: 240px;
+  /* width: 240px; */
   height: 240px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  background-size: 100% !important;
+  border: 1px solid rgba(203, 164, 164, 0.2);
+  border-radius: 12px;
+  background-size: 105% !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   /* background-size: cover !important; */
@@ -25,11 +25,12 @@
 .dashboard-nav-left {
   display: flex;
 }
+
 .dashboard-logo {
   object-fit: contain;
   height: 80px;
   width: 80px;
-  margin-right: 36px;
+  margin-right: 28px;
 }
 .folder:hover {
   background-size: 110% !important;
@@ -51,14 +52,14 @@
 }
 
 .folder-section {
-  display: flex;
+  /* display: flex; */
   align-content: flex-start;
   flex-wrap: wrap;
   /* justify-content: space-between; */
   width: 100%;
 }
 .folder-name {
-  margin-top: 16px;
+  margin-top: 24px;
   display: flex;
   justify-content: space-between;
 }
@@ -77,8 +78,8 @@
 
 @media only screen and (max-width: 1080px) {
   .folder {
-    width: 25vw;
-    height: 25vw;
+    width: 100%;
+    /* height: 25vw; */
   }
 
   .folder-name {
@@ -87,13 +88,12 @@
   .folder-container {
     padding: 1vw;
   }
-}
-@media only screen and (max-width: 720px) {
-  .folder {
-    width: 40vw;
-    height: 40vw;
+  .dashboard-logo {
+    height: 40px;
+    width: 40px;
   }
 }
+
 .action-icons {
   display: flex;
 }
@@ -103,10 +103,12 @@
   bottom: -40px;
   width: 90vw;
   max-width: 1080px;
-  color: white;
+  color: black;
   padding: 8px 16px;
   transition: all 0.5s ease;
   border-radius: 16px;
+  background-color: cyan;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .toast-show {
   bottom: 12px;
@@ -151,6 +153,11 @@
   .delete-btn-section {
     justify-content: flex-end;
   }
+
+  .btn-create {
+    background-color: red;
+    display: none !important ;
+  }
 }
 .delete-btn-section {
   width: 100%;
@@ -182,6 +189,7 @@
 }
 
 .drop-down {
+  z-index: 1000;
   width: 200px;
   /* height: 250px; */
   padding: 24px 0;
@@ -203,10 +211,10 @@
 }
 
 .folder-container-row {
-  width: 100%;
+  /* width: 100%;
   display: flex;
   flex-direction: row;
-  margin: 0;
+  margin: 0; */
 }
 .folder-row {
   height: 50px;
@@ -236,4 +244,41 @@
 
 .btn-1:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.swing-in-top-fwd {
+  -webkit-animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-top-fwd 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
 }
