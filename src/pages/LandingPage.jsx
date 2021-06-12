@@ -18,14 +18,22 @@ export default class LandingPage extends React.Component {
   render() {
     return (
       <div className="landing-container">
-        <div className="headline">
-          <div>Display your favourite</div> <div className="headline-product">{this.state.products[this.state.currentProduct]}</div>{' '}
-          <div>for the world to see.</div>{' '}
+        <div style={{ display: 'flex' }}>
+          <img
+            className="headline-img"
+            src="https://res.cloudinary.com/yosuam19/image/upload/v1623490167/polaroid/Safari_Big_Sur_-_Light_ldpsjw.png"
+          />
+          <div style={{ justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
+            <div className="headline">
+              <div>Display your favourite</div> <div className="headline-product">{this.state.products[this.state.currentProduct]}</div>{' '}
+              <div>for the world to see.</div>{' '}
+            </div>
+            <button className="btn-primary" onClick={(_) => (window.location.href = '/dashboard')}>
+              Try now
+            </button>
+            <div className="free-disclaimer">Absolutely 100% free. No hidden extras</div>
+          </div>
         </div>
-        <button className="btn-primary" onClick={(_) => (window.location.href = '/dashboard')}>
-          Try now
-        </button>
-        <div className="free-disclaimer">Absolutely 100% free. No hidden extras</div>
       </div>
     )
   }

@@ -5,6 +5,11 @@ export default function Navbar() {
     <div className="nav-container">
       <img className="nav-logo" src="https://res.cloudinary.com/yosuam19/image/upload/v1611415280/polaroid/logo_vtmwdp.png" />
       <div className="nav-right-section">
+        <div className="nav-logo-container">
+          <div>Virtual</div>
+          <div>Polaroids</div>
+        </div>
+        <div className="divider">a</div>
         <div className="nav-item" onClick={(_) => (window.location.href = '/devel')}>
           Product
         </div>
